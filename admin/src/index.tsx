@@ -1,63 +1,37 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import Utils from '@iobroker/adapter-react/Components/Utils';
+// import from @iobroker/adapter-react
+import theme from '@iobroker/adapter-react/Theme';
+// UI elements are imported from Material-UI
+import { ThemeProvider } from '@mui/material/styles';
 // import from iobroker-react docu page => https://github.com/AlCalzone/iobroker-react
 import { SettingsApp } from 'iobroker-react/app';
 import type { Translations } from 'iobroker-react/i18n';
-import { useIoBrokerTheme } from 'iobroker-react/hooks';
-// import from @iobroker/adapter-react
-import theme from '@iobroker/adapter-react/Theme';
-import Utils from '@iobroker/adapter-react/Components/Utils';
-// UI elements are imported from Material-UI
-import { ThemeProvider } from '@mui/material/styles';
-import { useSettings, useI18n } from 'iobroker-react/hooks';
-import { Checkbox, FormControlLabel, TextField, Tooltip } from '@mui/material/';
-
+import React from 'react';
+import ReactDOM from 'react-dom';
+//import { useSettings, useI18n } from 'iobroker-react/hooks';
+import BasicTabs from './components/tabs';
 // Components are imported here
 
 const themeName = Utils.getThemeName();
+
+// eslint-disable-next-line react/display-name
 const SettingsPageContent: React.FC = React.memo(() => {
 	// settings is the current settings object, including the changes made in the UI
 	// originalSettings is the original settings object, as it was loaded from ioBroker
 	// setSettings is used to update the current settings object
-	const { settings, originalSettings, setSettings } = useSettings<ioBroker.AdapterConfig>();
+	// const { settings, originalSettings, setSettings } = useSettings<ioBroker.AdapterConfig>();
 
-	const { translate: _ } = useI18n();
+	// const { translate: _ } = useI18n();
 
 	// Updates the settings when the checkbox changes. The changes are not saved yet.
-	const handleChange = <T extends keyof ioBroker.AdapterConfig>(option: T, value: ioBroker.AdapterConfig[T]) => {
-		setSettings((s) => ({
-			...s,
-			[option]: value,
-		}));
-	};
+	//const handleChange = <T extends keyof ioBroker.AdapterConfig>(option: T, value: ioBroker.AdapterConfig[T]) => {
+	//	setSettings((s) => ({
+	//		...s,
+	//		[option]: value,
+	//	}));
+	//	};
 
-	return (
-		<div>
-			<FormControlLabel
-				label={_('Enable option 1')}
-				control={
-					<Checkbox
-						checked={settings.option1}
-						onChange={(event, checked) => handleChange('option1', checked)}
-					/>
-				}
-			/>
-			<div>
-				<Tooltip title={_('tooltip')} arrow>
-					<TextField
-						label={_('textinput')}
-						color="success"
-						sx={{ width: '20%', textAlignLast: 'center' }}
-						value={settings.testInput}
-						placeholder="placeholder"
-						onChange={(event) => {
-							handleChange('testInput', event.target.value);
-						}}
-					/>
-				</Tooltip>
-			</div>
-		</div>
-	);
+	return <BasicTabs />;
 });
 
 const migrateSettings = (settings: ioBroker.AdapterConfig) => {
