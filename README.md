@@ -97,12 +97,12 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 -->
 
 ### **WORK IN PROGRESS**
-* (Issi) initial release
+* (KOS-CH) initial release
 
 ## License
 MIT License
 
-Copyright (c) 2021 Issi <issi.dev.iobroker@gmail.com>
+Copyright (c) 2022 KOS-CH <stefan.koch@optimalvoice.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

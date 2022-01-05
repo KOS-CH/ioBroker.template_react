@@ -6,7 +6,7 @@
     "name": "KOS-CH",
     "email": "stefan.koch@optimalvoice.ch"
   },
-  "homepage": "https://github.com/xXBJXx/ioBroker.template_react",
+  "homepage": "https://github.com/KOS-CH/ioBroker.template_react",
   "license": "MIT",
   "keywords": [
     "ioBroker",
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/xXBJXx/ioBroker.template_react"
+    "url": "https://github.com/KOS-CH/ioBroker.template_react"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.5.1"
@@ -120,7 +120,7 @@
     "instrument": true
   },
   "bugs": {
-    "url": "https://github.com/xXBJXx/ioBroker.template_react/issues"
+    "url": "https://github.com/KOS-CH/ioBroker.template_react/issues"
   },
   "readmeFilename": "README.md"
 }
