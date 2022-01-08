@@ -1,6 +1,7 @@
 import { Box, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import { useI18n } from 'iobroker-react/hooks';
 import React, { useState } from 'react';
+import { Config } from '../lib/Config';
 
 //const deviceTypeOptions: { value: string; title: string }[] = [
 const colorClassOptions = [
@@ -47,13 +48,19 @@ const colorClassOptions = [
 	},
 ];
 
-export const SelectColorClaasOptions = (): JSX.Element => {
+/* interface SelectColorClassOptions {
+	onChange: (value: number) => void;
+} */
+/* export const SelectColorClaasOptions: React.FC<SelectColorClaasOptions> = ({ onChange }): JSX.Element => { */
+export const SelectColorClassOptions = (): JSX.Element => {
 	const { translate: _ } = useI18n();
 	const [colorOptions, setColorGlassOptions] = useState('selectcolor');
 
 	const handleColorClassOptions = (event: SelectChangeEvent) => {
 		setColorGlassOptions(event.target.value);
-		console.log(event.target.value);
+		console.log(typeof event.target.value);
+		/* onChange(JSON.parse(event.target.value)); */
+		Config.color = JSON.parse(event.target.value);
 	};
 
 	const ColorClassSelect = () => {

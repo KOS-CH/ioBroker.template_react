@@ -1,9 +1,12 @@
 import { Box, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material';
 import { useI18n } from 'iobroker-react/hooks';
 import React, { useState } from 'react';
-import { SelectColorClaasOptions } from './ColorClassOption';
+import { Config } from '../lib/Config';
+import { SelectColorClassOptions } from './ColorClassOption';
+import DefineConfigURL from './DefineConfigURL';
+import DefineName from './DefineName';
+import DefineResolution from './DefineResolution';
 import { SelectLightOptions } from './LightOptions';
-import { SelectSensorFunction } from './SensorFunctionOptions';
 
 //const deviceTypeOptions: { value: string; title: string }[] = [
 const deviceTypeOptions = [
@@ -46,19 +49,25 @@ const deviceTypeOptions = [
 	},
 	{
 		label: 'awayButton',
-		title: 'ddeviceTypeOptionsAwayButton',
+		title: 'deviceTypeOptionsAwayButton',
 	},
 ];
 
 export const SelectDeviceType = (): JSX.Element => {
 	const { translate: _ } = useI18n();
-	const [brightnessAstroDay, setBrightnessAstroDay] = useState('selectDevice');
+	const [devicetype, sethandleDeviceType] = useState('selectDevice');
 
-	const handleChangeDay = (event: SelectChangeEvent) => {
-		setBrightnessAstroDay(event.target.value);
+	const handleDeviceType = (event: SelectChangeEvent) => {
+		console.log(Config);
+
+		sethandleDeviceType(event.target.value);
 	};
 
-	const astroSelect = () => {
+	/* const TextField = (event: object) => void */
+
+	/* function(event: object) => void */
+
+	const deviceTypeSelect = () => {
 		const menuItem: JSX.Element[] = [];
 		for (const key in deviceTypeOptions) {
 			menuItem.push(
@@ -75,23 +84,74 @@ export const SelectDeviceType = (): JSX.Element => {
 	return (
 		<React.Fragment>
 			<React.Fragment>
-				<Box sx={{ minWidth: 120, maxWidth: 300, width: '250px' }}>
-					<FormControl>
-						<InputLabel id="AddDevice-select-label">{_('Select Device type')}</InputLabel>
-						<Select
-							labelId="AddDevice-select-label"
-							id="AddDevice"
-							value={brightnessAstroDay}
-							label="astro time day"
-							onChange={handleChangeDay}
-							sx={{ width: 250 }}
-						>
-							{astroSelect()}
-						</Select>
-					</FormControl>
-				</Box>
+				<Grid
+					container
+					spacing={1}
+					sx={{
+						marginTop: '10px',
+						paddingBottom: '15px',
+						alignItems: 'center',
+						justifyContent: 'space-around',
+						display: 'flex',
+						flexWrap: 'wrap',
+						flexDirection: 'row',
+					}}
+				>
+					<Box sx={{ minWidth: 120, maxWidth: 300, width: '250px' }}>
+						<FormControl>
+							<InputLabel id="DeviceType-select-label">{_('Select Device type')}</InputLabel>
+							<Select
+								labelId="DeviceType-select-label"
+								id="DeviceType"
+								value={devicetype}
+								label="select device Type"
+								onChange={handleDeviceType}
+								sx={{ width: 250 }}
+							>
+								{deviceTypeSelect()}
+							</Select>
+						</FormControl>
+					</Box>
+				</Grid>
 			</React.Fragment>
-			{brightnessAstroDay === 'deviceTypeOptionsDoorbell' ? (
+			{devicetype === 'deviceTypeOptionsLamp' ? (
+				<React.Fragment>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
+						<React.Fragment>
+							<DefineName />
+							<DefineConfigURL />
+						</React.Fragment>
+					</Grid>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
+						<TextField id="outlined-basic" label="Select ID Placeholder" variant="outlined" />
+					</Grid>
+				</React.Fragment>
+			) : null}
+			{devicetype === 'deviceTypeOptionsRGBLamp' ? (
 				<React.Fragment>
 					<Grid
 						container
@@ -108,10 +168,88 @@ export const SelectDeviceType = (): JSX.Element => {
 					>
 						<React.Fragment>
 							<SelectLightOptions />
-							<SelectColorClaasOptions />
+							<SelectColorClassOptions />
 
-							<TextField id="outlined-basic" label="Outlined" variant="outlined" />
-							<TextField id="outlined-basic" label="Outlined" variant="outlined" />
+							<DefineName />
+							<DefineConfigURL />
+						</React.Fragment>
+					</Grid>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
+						<SelectLightOptions />
+						{/* <SelectColorClaasOptions onChange={(value) => (Config.color = value)} /> */}
+						<SelectColorClassOptions />
+					</Grid>
+				</React.Fragment>
+			) : null}
+			{devicetype === 'deviceTypeOptionsSensor' ? (
+				<React.Fragment>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
+						<React.Fragment>
+							<DefineName />
+							<DefineConfigURL />
+							<SelectColorClassOptions />
+						</React.Fragment>
+					</Grid>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
+						<DefineResolution />
+						<h1>test1</h1>
+					</Grid>
+				</React.Fragment>
+			) : null}
+			{devicetype === 'deviceTypeOptionsMotionDetection' ? (
+				<React.Fragment>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
+						<React.Fragment>
+							<DefineName />
+							<DefineConfigURL />
 						</React.Fragment>
 					</Grid>
 					<Grid
@@ -131,7 +269,7 @@ export const SelectDeviceType = (): JSX.Element => {
 					</Grid>
 				</React.Fragment>
 			) : null}
-			{brightnessAstroDay === 'deviceTypeOptionsMultiSensor' ? (
+			{devicetype === 'deviceTypeOptionsSmokeAlarm' ? (
 				<React.Fragment>
 					<Grid
 						container
@@ -146,8 +284,155 @@ export const SelectDeviceType = (): JSX.Element => {
 							flexDirection: 'row',
 						}}
 					>
-						<SelectSensorFunction />
+						<React.Fragment>
+							<DefineName />
+							<DefineConfigURL />
+						</React.Fragment>
+					</Grid>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
+						<h1>test1</h1>
+					</Grid>
+				</React.Fragment>
+			) : null}
+			{devicetype === 'deviceTypeOptionsButton' ? (
+				<React.Fragment>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
+						<React.Fragment>
+							<DefineName />
+							<DefineConfigURL />
+						</React.Fragment>
+					</Grid>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
+						<h1>test1</h1>
+					</Grid>
+				</React.Fragment>
+			) : null}
+			{devicetype === 'deviceTypeOptionsDoorbell' ? (
+				<React.Fragment>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
+						<React.Fragment>
+							<DefineName />
+							<DefineConfigURL />
+						</React.Fragment>
+					</Grid>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
+						<h1>test1</h1>
+					</Grid>
+				</React.Fragment>
+			) : null}
+			{devicetype === 'deviceTypeOptionsMultiSensor' ? (
+				<React.Fragment>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
+						<DefineName />
+						<DefineConfigURL />
+					</Grid>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
 						<h1>test2</h1>
+						<h1>test2</h1>
+					</Grid>
+				</React.Fragment>
+			) : null}
+			{devicetype === 'deviceTypeOptionsAwayButton' ? (
+				<React.Fragment>
+					<Grid
+						container
+						spacing={1}
+						sx={{
+							marginTop: '10px',
+							paddingBottom: '15px',
+							alignItems: 'center',
+							justifyContent: 'space-around',
+							display: 'flex',
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+						}}
+					>
+						<DefineName />
+						<DefineConfigURL />
 					</Grid>
 					<Grid
 						container

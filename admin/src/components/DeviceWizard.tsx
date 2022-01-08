@@ -7,6 +7,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import * as React from 'react';
+import { clearConfig } from '../lib/Config';
 import { SelectDeviceType } from '../options/DeviceTypeOptions';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -56,6 +57,7 @@ export default function AddDeviceDialog() {
 	};
 	const handleClose = () => {
 		setOpen(false);
+		clearConfig();
 	};
 
 	return (

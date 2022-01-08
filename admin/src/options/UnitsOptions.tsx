@@ -1,4 +1,5 @@
-const units: { value: unitValue; title: string }[] = [
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const units = [
 	{
 		value: { symbol: 'lx', unit: 'lux' },
 		title: 'lux',

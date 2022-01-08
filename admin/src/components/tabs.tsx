@@ -4,9 +4,9 @@ import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
 import { useI18n } from 'iobroker-react/hooks';
 import * as React from 'react';
-import { SelectLightOptions } from '../options/LightOptions';
 import EnhancedTable from './DeviceOverview';
 import AddDeviceDialog from './DeviceWizard';
+import VDCSettings from './VDCSettings';
 
 interface TabPanelProps {
 	children?: React.ReactNode;
@@ -62,8 +62,7 @@ export default function BasicTabs() {
 			</TabPanel>
 
 			<TabPanel value={value} index={1}>
-				<SelectLightOptions />
-				Hier sollen die VDC Settings angepasst werden können
+				<VDCSettings />
 			</TabPanel>
 		</Box>
 	);
