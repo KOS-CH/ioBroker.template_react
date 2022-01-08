@@ -17,9 +17,9 @@ interface Config {
 	DeviceSensorSIUnit: string;
 	DeviceSensorSymbol: string;
 	/* confirmMsg: boolean; */
-	showCreateConfirmation: boolean;
+	showCreateConfirmation: string;
 	manualDeviceId: string;
-	showSelectId: boolean;
+	showSelectId: string;
 	selectIdValue: string;
 	basicDoorbell: string;
 	DeviceRGBLampPowerSwitch: string;
@@ -74,15 +74,15 @@ export const InitialConfig = {
 
 export let Config: Config = {
 	light: false,
-	addDeviceDeviceType: '',
 	configUrl: '',
 	name: '',
 	deviceType: '',
 	color: 0,
 	watchStateID: '',
-	deviceSensorResolution: '',
+	addDeviceDeviceType: '',
 	basicButton: '',
 	DeviceSensorColorClass: '',
+	deviceSensorResolution: '',
 	DeviceSensorState: '',
 	DeviceSensorType: '',
 	DeviceSensorUsage: '',
@@ -90,10 +90,10 @@ export let Config: Config = {
 	DeviceSensorMin: '',
 	DeviceSensorSIUnit: '',
 	DeviceSensorSymbol: '',
-	/* confirmMsg: false, */
-	showCreateConfirmation: false,
+	/* confirmMsg: boolean; */
+	showCreateConfirmation: '',
 	manualDeviceId: '',
-	showSelectId: false,
+	showSelectId: '',
 	selectIdValue: '',
 	basicDoorbell: '',
 	DeviceRGBLampPowerSwitch: '',

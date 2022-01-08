@@ -7,7 +7,7 @@ import * as React from 'react';
 } */
 /* export const SelectColorClaasOptions: React.FC<SelectColorClaasOptions> = ({ onChange }): JSX.Element => { */
 
-    export default function VDCSettings({onChange}) : JSX.Element => {
+export default function VDCSettings() {
 	const [vdcname, setVdcname] = React.useState('Name of VDC');
 	const [tcpport, setTCPPort] = React.useState('local TCP Port');
 	const [ioURL, setioURL] = React.useState('ioBroker URL');
@@ -53,8 +53,7 @@ import * as React from 'react';
 	);
 }
 
-
 function genDSUID() {
-    const genRanHex = (size) => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join("");
-    return genRanHex(34).toUpperCase();
+	const genRanHex = (size) => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+	return genRanHex(34).toUpperCase();
 }
