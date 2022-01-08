@@ -25,7 +25,7 @@
     "@alcalzone/release-script": "^3.4.0",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
-    "@iobroker/adapter-react": "2.0.13",
+    "@iobroker/adapter-react": "2.0.14",
     "@iobroker/dev-server": "^0.4.0",
     "@iobroker/socket-client": "^1.0.5",
     "@iobroker/testing": "^2.5.2",
@@ -42,13 +42,13 @@
     "@types/react-dom": "^17.0.9",
     "@types/sinon": "^10.0.4",
     "@types/sinon-chai": "^3.2.5",
-    "@types/uuid": "^8.3.1",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
     "axios": "^0.23.0",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
-    "esbuild": "^0.13.8",
+    "esbuild": "^0.14.10",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -69,7 +69,7 @@
     "source-map-support": "^0.5.20",
     "tiny-glob": "^0.2.9",
     "ts-node": "^10.3.0",
-    "typescript": "~4.4.4"
+    "typescript": "~4.5.4"
   },
   "main": "build/main.js",
   "files": [
