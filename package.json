@@ -32,7 +32,7 @@
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.3",
     "@mui/styles": "^5.5.3",
-    "@types/chai": "^4.2.22",
+    "@types/chai": "^4.3.1",
     "@types/chai-as-promised": "^7.1.5",
     "@types/gulp": "^4.0.9",
     "@types/mocha": "^9.1.0",
