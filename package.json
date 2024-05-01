@@ -29,7 +29,7 @@
     "@iobroker/dev-server": "^0.7.2",
     "@iobroker/socket-client": "^1.1.14",
     "@iobroker/testing": "^2.6.0",
-    "@mui/icons-material": "^5.15.14",
+    "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.14",
     "@mui/styles": "^5.15.14",
     "@types/chai": "^4.3.3",
