@@ -30,7 +30,7 @@
     "@iobroker/socket-client": "^1.1.14",
     "@iobroker/testing": "^2.6.0",
     "@mui/icons-material": "^5.15.19",
-    "@mui/material": "^5.15.15",
+    "@mui/material": "^5.15.19",
     "@mui/styles": "^5.15.15",
     "@types/chai": "^4.3.3",
     "@types/chai-as-promised": "^7.1.8",
